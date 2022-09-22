@@ -10,7 +10,7 @@ def count_batteries_by_usage(cycles):
   # Added tests to ensure no string values or negative values are passed to the function
   for charge_cycles in cycles:
         if type(charge_cycles)!='int':
-            raise Exception("Please enter integer values only")
+            raise Exception("Please enter numeric values only.")
         if charge_cycles < 0:
             raise Exception("Value cannot be negative")
         if charge_cycles >= 910:
