@@ -7,7 +7,7 @@ def count_batteries_by_usage(cycles):
     "highCount": 0
   }
   # Iterate through each battery's number of charge-cycles and increment the dictionary values according to the classification given.
-  # Added tests to ensure no string values or negative values are passed to the function
+  # Added tests to catch string values or negative values passed to the function
   for charge_cycles in cycles:
         if not isinstance(charge_cycles,int):
             raise Exception("Please enter numeric values only. (No strings)")
