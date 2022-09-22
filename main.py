@@ -9,8 +9,8 @@ def count_batteries_by_usage(cycles):
   # Iterate through each battery's number of charge-cycles and increment the dictionary values according to the classification given.
   # Added tests to ensure no string values or negative values are passed to the function
   for charge_cycles in cycles:
-        if type(charge_cycles)!='int':
-            raise Exception("Please enter numeric values only.")
+        if not isinstance(charge_cycles,int):
+            raise Exception("Please enter numeric values only. (No strings)")
         if charge_cycles < 0:
             raise Exception("Value cannot be negative")
         if charge_cycles >= 910:
@@ -24,7 +24,7 @@ def count_batteries_by_usage(cycles):
 
 def test_bucketing_by_number_of_cycles():
   print("Counting batteries by usage cycles...\n");
-  counts = count_batteries_by_usage([100, 300, 500, 600, 900, 1000,'f'])
+  counts = count_batteries_by_usage([100, 300, 500, 600, 900, 1000])
   assert(counts["lowCount"] == 2)
   assert(counts["mediumCount"] == 3)
   assert(counts["highCount"] == 1)
